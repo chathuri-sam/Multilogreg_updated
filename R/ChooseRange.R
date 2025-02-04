@@ -13,8 +13,8 @@
 #' @param kern The kernel function. Default is Epanechnikov. Alternatively, the kernel function can be Indicator.
 #' @param cPCF Non parametric estimates of cross PCF ratios. Default is cPCF = NULL. If cPCF = NULL, then the cross PCF ratios are estimated
 #' using the function CrossPCF
-#' @importFrom spatstat closepairs
-#' @importFrom spatstat crosspairs
+#' @importFrom spatstat.geom closepairs
+#' @importFrom spatstat.geom crosspairs
 #' @importFrom stats aggregate
 #' @return Return estimated cross PCF ratios, r distances used, bandwidth used, refined cross PCF ratios and R^*
 #'
