@@ -65,9 +65,15 @@ sim_lgcp_multi_fixed <- function(basecov,covariate,betas,alphas,xis,sigmas,phis,
   
   ###Create sqaure window for point processes
   gridcord <- as.data.frame(gridcenters(window = n.window, nx = dim(basecov)[1], ny = dim(basecov)[2]))
+<<<<<<< HEAD
   
   plot(gridcord)
   
+=======
+
+  plot(gridcord)
+
+>>>>>>> 1e39a1334dc28d79659ba39e6763f24437d7b2ad
   ###The uniq x and y seq
   xx <- unique(gridcord$x)
   yy <- unique(gridcord$y)
@@ -119,4 +125,8 @@ sim_lgcp_multi_fixed <- function(basecov,covariate,betas,alphas,xis,sigmas,phis,
   
   
   list(process = process, mu = mu, pix = pix, beta0s=beta0s, markedprocess=markedprocess)
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1e39a1334dc28d79659ba39e6763f24437d7b2ad
