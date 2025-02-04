@@ -1,4 +1,7 @@
-library(Multilogreg)
+#This code has been updated on work done by Hessellund et al. (2022)'s sim-lgcp-multi code found in  https://github.com/kristianhessellund/Multilogreg.git
+# This version is able to address any given window and multiple covariates. 
+#(whereas Hessellund et al. (2022) used a square window and a single covariate)
+
 sim_lgcp_multi_fixed <- function(basecov,covariate,betas,alphas,xis,sigmas,phis, n.window,n.points,beta0s=NULL){
   
   nspecies <- dim(betas)[1]
@@ -9,11 +12,12 @@ sim_lgcp_multi_fixed <- function(basecov,covariate,betas,alphas,xis,sigmas,phis,
   
   ###If all intercepts are given, then use given beta0s; otherwise calculate beta0s so that
   ### average number of points are n.points[i] for process X_i
+  logint <- basecov
   
   if(is.null(beta0s)){
     beta0s <- numeric()
     for(i in 1:nspecies){
-      logint <- basecov
+      
       for(j in seq_len(ncol(betas))) {
         beta0s[i] <- log(n.points[i]/area.owin(n.window))-mean(c(as.matrix(covariate[[j]]*betas[i,j]+logint)))
         logint <- logint + covariate[[j]]*betas[i,j]
@@ -33,6 +37,8 @@ sim_lgcp_multi_fixed <- function(basecov,covariate,betas,alphas,xis,sigmas,phis,
   
   ###Create sqaure window for point processes
   gridcord <- as.data.frame(gridcenters(window = n.window, nx = dim(basecov)[1], ny = dim(basecov)[2]))
+
+  plot(gridcord)
 
   ###The uniq x and y seq
   xx <- unique(gridcord$x)
@@ -86,4 +92,3 @@ sim_lgcp_multi_fixed <- function(basecov,covariate,betas,alphas,xis,sigmas,phis,
   
   list(process = process, mu = mu, pix = pix, beta0s=beta0s, markedprocess=markedprocess)
 }
-
