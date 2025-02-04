@@ -17,8 +17,8 @@
 #' based on an estimate of the pooled cross PCF.
 #' @param cut For refined cross PCF ratio estimator. Default cut = NULL. If cut = NULL, the parameter R^* for the constraint is chosen
 #' manually using the function ChooseRange
-#' @importFrom spatstat closepairs
-#' @importFrom spatstat crosspairs
+#' @importFrom spatstat.geom closepairs
+#' @importFrom spatstat.geom crosspairs
 #' @importFrom stats optim
 #' @return Return estimated cross PCF ratios, r distances used, bandwidth used, refined cross PCF ratios and R^*
 #'
