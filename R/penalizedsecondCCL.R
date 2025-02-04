@@ -23,9 +23,9 @@
 #' @param tol.eta Convergence parameter for eta. The default is tol.eta = 1e-10.
 #' @param mu Contraint parameter. The default is mu = 1.
 #' @param prints Optional. Default prints = TRUE. Printing value of likelihood function along with convergence rate for each iteration.
-#' @importFrom spatstat closepairs
-#' @importFrom spatstat is.im
-#' @importFrom spatstat is.ppp
+#' @importFrom spatstat.geom closepairs
+#' @importFrom spatstat.geom is.im
+#' @importFrom spatstat.geom is.ppp
 #' @importFrom stats runif
 #' @return Return estimated parameters of multivariate LGCP X
 #' @details To be updated.
